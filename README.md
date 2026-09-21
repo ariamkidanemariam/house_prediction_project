@@ -1,4 +1,4 @@
-# House Prices — Data Cleaning & Categorical Encoding Pipeline
+# House Prices: Data Cleaning & Categorical Encoding Pipeline
 
 A step-by-step pipeline on the Kaggle "House Prices - Advanced Regression Techniques" dataset (`train.csv`, 1460 rows × 81 columns): clean the data, apply four different categorical encoding methods, then train a model on each to see which encoding actually performs best.
 
@@ -13,7 +13,7 @@ A step-by-step pipeline on the Kaggle "House Prices - Advanced Regression Techni
 | 5 | `05_kfold_target_encoding.ipynb` | Leak-free version: encodes each fold using only the *other* folds' statistics | `train_kfold_target_encoded.csv` |
 | 6 | `06_model_comparison.ipynb` | Trains a `RandomForestRegressor` on all four encoded datasets (same train/test split) and compares RMSE / R² | `encoding_comparison_results.csv`, `encoding_comparison.png` |
 
-**Note on the ranking:** Label Encoding wins for this tree-based model, since Random Forests split on thresholds and aren't misled by an arbitrary integer ordering the way a linear model would be. Plain Target Encoding also edges out its own leak-free version (K-Fold) — a small illustration of the leakage effect flagged in notebook 4, and a result that likely wouldn't hold on truly unseen data (e.g. Kaggle's real test set).
+**Note on the ranking:** Label Encoding wins for this tree-based model, since Random Forests split on thresholds and aren't misled by an arbitrary integer ordering the way a linear model would be. Plain Target Encoding also edges out its own leak-free version (K-Fold), a small illustration of the leakage effect flagged in notebook 4, and a result that likely wouldn't hold on truly unseen data (e.g. Kaggle's real test set).
 
 ## Requirements
 
@@ -27,7 +27,7 @@ nbformat / jupyter (to run the notebooks)
 
 ## Running
 
-Notebooks are numbered and meant to be run in order — each one loads the CSV produced by the previous step:
+Notebooks are numbered and meant to be run in order; each one loads the CSV produced by the previous step:
 
 ```bash
 jupyter nbconvert --to notebook --execute --inplace 01_data_cleaning.ipynb
